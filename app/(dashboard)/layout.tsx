@@ -1,5 +1,6 @@
 import Logo from "@/components/Logo";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
+import { UserButton } from "@clerk/nextjs";
 import React, { ReactNode } from "react";
 
 function Layout({ children }: { children: ReactNode }) {
@@ -9,11 +10,10 @@ function Layout({ children }: { children: ReactNode }) {
         <Logo />
         <div className="flex gap-4 items-center">
           <ThemeSwitcher />
+          <UserButton afterSignOutUrl="/sign-in" />
         </div>
       </nav>
-      <main className="flex w-full flex-grow h-full items-center justify-center">
-        {children}
-      </main>
+      <main className="flex w-full flex-grow">{children}</main>
     </div>
   );
 }
